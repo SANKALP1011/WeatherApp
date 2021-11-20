@@ -14,6 +14,17 @@ var MaxTemp = 0.0;
 var Pressure = 0;
 var Humidity = 0;
 var CloudCondition = "";
+var WeatherId = 0;
+var IconUrl = "";
+
+    if (WeatherId >= 700 || WeatherId < 800){
+          IconUrl = "fas fa-cloud-rain fa-3x";
+        console.log("yes");
+    }
+   else{
+       console.log("error id");
+   }
+
 
 app.get("/",function(req,res){
     res.render("weather",{CityName: CityName});
@@ -33,7 +44,8 @@ app.post("/",function(req,res){
            Pressure = weatherInfo.main.pressure;
            Humidity = weatherInfo.main.humidity;
            CloudCondition = weatherInfo.weather[0].description;
-
+           WeatherId = weatherInfo.weather[0].id;
+           console.log(WeatherId);
            console.log(CityName);
            console.log(temp);
            res.render("weather",{CityName: CityName ,
@@ -43,7 +55,8 @@ app.post("/",function(req,res){
              MaxTemp: MaxTemp,
              Pressure: Pressure,
              Humidity: Humidity,
-             Cloud: CloudCondition
+             Cloud: CloudCondition,
+             IconUrl: IconUrl
             
             });
 
