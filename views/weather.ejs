@@ -22,11 +22,17 @@
                   </svg></button>
                <div class="row">
                    <div class="col-lg-6">
-                       <h1 class="CityText">CITY</h1>
-                       <h3 class="WeatherText">Weather</h3>
+                       <h1 class="CityText"><%= CityName %></h1>
+                       <h3 class="WeatherText"><%= Temp %></h3>
                    </div>
                    <div class="col-lg-6">
-                    <div class="WeatherStats">
+                    <div class="WeatherStats shadow-2xl">
+                        <h4 class="MoreDetails"><%= TempFeelsLike %> </h4>
+                        <h4 class="MoreDetails"><%= MinTemp %></h4>
+                        <h4 class="MoreDetails"><%= MaxTemp %></h4>
+                        <h4 class="MoreDetails"><%= Pressure %></h4>
+                        <h4 class="MoreDetails"><%= Humidity %></h4>
+                        <h4 class="MoreDetails"><%= Cloud %></h4>
                     </div>
                    </div>
                </div>
