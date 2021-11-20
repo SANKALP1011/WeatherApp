@@ -10,11 +10,14 @@ app.get("/",function(req,res){
     res.render("weather");
 })
 app.post("/",function(req,res){
-   const url = "https://api.openweathermap.org/data/2.5/weather?q=Lucknow&appid=8045b99916c2e151cb2114bdf1d26663";
+  var city = req.body.CityName;
+  console.log(city);
+   const url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=8045b99916c2e151cb2114bdf1d26663";
    https.get(url,function(response){
        response.on("data",function(data){
            const weatherInfo = JSON.parse(data);
            console.log(weatherInfo);
+           console.log(req.body.CityName)
        })
    })
 })
