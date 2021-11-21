@@ -1,43 +1,75 @@
-body{
-    background-image: url("https://www.survivingwithandroid.com/wp-content/uploads/2014/11/android_weather_app.jpg");
-    background-repeat: no-repeat;
-}
-#WeatherView{
-    margin: 5% 5% 20% 5%;
-    background-image: url("https://wallpaperaccess.com/full/2903130.jpg");
-    background: rgba( 248, 231, 28, 0 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 1.5px );
-    -webkit-backdrop-filter: blur( 1.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-}
-.CityText{
-    margin: 70% 10% 5% 5%;
-}
-.WeatherText{
-    margin: 3% 10% 5% 5%;
-}
-input{
-    margin-right: 20%;
-}
-input.SearchBar{
-    border: none;
-    outline: none;
-    outline: none;
-    padding: 1% 10% 0 25%;
-    border-radius: 24px;
-    background: transparent;
-    color: white;
-    font-family: inherit;
-    font-size: 105%;
-    width: 50%;
-}
-.WeatherStats{
-    margin: 10% 10% 10% 10%;
-}
-.MoreDetails{
-    padding: 5% 3% 3% 5%;
-}
+body {
+  background-image: url("https://images.unsplash.com/photo-1637090405819-417cd9583da4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80");
 
-
+}
+#WeatherView {
+  margin: 5% 5% 20% 5%;
+  background-image: url("https://wallpaperaccess.com/full/2903130.jpg");
+  background: rgba(248, 231, 28, 0);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.CityText {
+  margin: 70% 10% 5% 5%;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+@media (max-width: 600px) {
+  .CityText , .WeatherText{
+    text-align: center !important;
+    font-size: 50px !important;
+  }
+}
+.WeatherText {
+  margin: 3% 10% 5% 5%;
+  font-weight: bolder;
+}
+input {
+  margin-right: 20%;
+}
+input.SearchBar {
+  border: none;
+  outline: none;
+  outline: none;
+  padding: 1% 10% 0 20%;
+  border-radius: 24px;
+  background: transparent;
+  color: black;
+  font-family: inherit;
+  font-size: 105%;
+  font-weight: bolder;
+}
+.SearchBar{
+    margin: 2% 2% 2% 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.SearchButton{
+    margin: 2% 2% 2% 0%;
+}
+.WeatherStats {
+  margin: 10% 10% 10% 10%;
+  border-radius: 30px;
+}
+.MoreDetails {
+  padding: 5% 3% 3% 5%;
+  opacity: 0.8;
+  font-weight: bolder;
+}
+.WeatherIcon {
+  margin: 3% 10% 5% 5%;
+}
+@media (max-width: 600px) {
+  .WeatherIcon{
+    align-items: center;
+  }
+}
+.WeatherDetails{
+    text-align: center;
+    font-weight: bolder;
+    padding: 5% 2% 2% 2%;
+    text-decoration: underline;
+}
