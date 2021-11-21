@@ -25,35 +25,7 @@ var CloudCondition = "";
 var WeatherId = 0;
 var IconUrl = "";
 
-/* Using condition to check the  weather id and change the icon accordingly -: */
-if (WeatherId >= 200 || WeatherId < 300) {
-  IconUrl = "fas fa-cloud-showers-heavy fa-3x";
-} else if (WeatherId >= 300 || WeatherId < 400) {
-  IconUrl = "fas fa-cloud-rain fa-3x";
-} else if (WeatherId >= 500 || WeatherId < 600) {
-  IconUrl = "fas fa-cloud-rain fa-3x";
-} else if (WeatherId >= 600 || WeatherId < 700) {
-  IconUrl = "far fa-snowflake fa-3x";
-} else if (WeatherId >= 700 || WeatherId < 800) {
-  if (WeatherId === 701) {
-    IconUrl = "fas fa-water fa-3x";
-  } else if (WeatherId === 711) {
-    IconUrl = "fas fa-smog fa-3x";
-  } else if (WeatherId === 721) {
-    IconUrl = "fas fa-smog fa-3x";
-  } else if (WeatherId === 731) {
-    IconUrl = "fas fa-wind fa-3x";
-  } else {
-    IconUrl = "far fa-sun fa-3x";
-  }
-} else if (WeatherId == 800) {
-  IconUrl = "far fa-sun fa-3x";
-  console.log("yes");
-} else if (WeatherId > 800 || WeatherId < 900) {
-  IconUrl = "fas fa-cloud-sun fa-3x";
-} else {
-  console.log("error");
-}
+
 
 /* Get used to send the file to server -: */
 app.get("/", function (req, res) {
@@ -84,6 +56,34 @@ app.post("/", function (req, res) {
       console.log(WeatherId);
       console.log(CityName);
       console.log(Temp);
+      if (WeatherId >= 200 && WeatherId < 300) {
+        IconUrl = "fas fa-cloud-showers-heavy fa-3x";
+      } else if (WeatherId >= 300 && WeatherId < 400) {
+        IconUrl = "fas fa-cloud-rain fa-3x";
+      } else if (WeatherId >= 500 && WeatherId < 600) {
+        IconUrl = "fas fa-cloud-rain fa-3x";
+      } else if (WeatherId >= 600 && WeatherId < 700) {
+        IconUrl = "far fa-snowflake fa-3x";
+      } else if (WeatherId >= 700 && WeatherId < 800) {
+        if (WeatherId === 701) {
+          IconUrl = "fas fa-water fa-3x";
+        } else if (WeatherId === 711) {
+          IconUrl = "fas fa-smog fa-3x";
+        } else if (WeatherId === 721) {
+          IconUrl = "fas fa-smog fa-3x";
+        } else if (WeatherId === 731) {
+          IconUrl = "fas fa-wind fa-3x";
+        } else {
+          IconUrl = "far fa-sun fa-3x";
+        }
+      } else if (WeatherId === 800) {
+        IconUrl = "far fa-sun fa-3x";
+        console.log("yes");
+      } else if (WeatherId > 800 || WeatherId < 900) {
+        IconUrl = "fas fa-cloud-sun fa-3x";
+      } else {
+        console.log("error");
+      }
       res.render("weather", {
         CityName: CityName,
         Temp: Temp,
@@ -93,7 +93,7 @@ app.post("/", function (req, res) {
         Pressure: Pressure,
         Humidity: Humidity,
         Cloud: CloudCondition,
-        IconUrl: IconUrl,
+        IconUrl: IconUrl
       });
     });
   });
