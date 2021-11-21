@@ -1,11 +1,19 @@
+/* Express.js installed and required -: */
 const express = require("express");
+/* Https installed and required -: */
 const https = require("https");
+/* App.js using express.js -: */
 const app = express();
+/* Ejs installed and used -: */
 const ejs = require("ejs");
+/* Setting ejs as view engine -: */
 app.set("view engine", "ejs");
+/* Using express as body parsing -: */
 app.use(express.urlencoded({ extended: true }));
+/* Linking css file to the server -: */
 app.use(express.static(__dirname + "/public"));
 
+/* Variables declared to hold the data from the api -: */
 var CityName = "";
 var Temp = 0.0;
 var TempFeelsLike = 0.0;
@@ -17,6 +25,7 @@ var CloudCondition = "";
 var WeatherId = 0;
 var IconUrl = "";
 
+/* Using condition to check the  weather id and change the icon accordingly -: */
 if (WeatherId >= 200 || WeatherId < 300) {
   IconUrl = "fas fa-cloud-showers-heavy fa-3x";
 } else if (WeatherId >= 300 || WeatherId < 400) {
@@ -46,9 +55,12 @@ if (WeatherId >= 200 || WeatherId < 300) {
   console.log("error");
 }
 
+/* Get used to send the file to server -: */
 app.get("/", function (req, res) {
   res.render("weather", { CityName: CityName });
 });
+
+/* Post used to post the data on server and handle api functionality -: */
 app.post("/", function (req, res) {
   var city = req.body.CityName;
   console.log(city);
@@ -87,6 +99,7 @@ app.post("/", function (req, res) {
   });
 });
 
+/* Server -: */
 app.listen("3004", function () {
   console.log("server is up and running");
 });
