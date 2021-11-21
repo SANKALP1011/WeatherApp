@@ -100,6 +100,6 @@ app.post("/", function (req, res) {
 });
 
 /* Server -: */
-app.listen("3004", function () {
+app.listen(process.env.PORT || 3004, function () {
   console.log("server is up and running");
 });
