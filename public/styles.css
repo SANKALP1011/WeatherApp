@@ -1,6 +1,19 @@
 body {
-  background-image: url("https://images.unsplash.com/photo-1637090405819-417cd9583da4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80");
+  background-image: url("https://images.unsplash.com/photo-1637077866376-554630bea022?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80");
 
+}
+.MainHeading{
+  text-align: center;
+  font-size: 70PX;
+  font-weight: bolder;
+  padding: 2% 2% 2% 2%;
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .MainHeading{
+    font-size: 60px;
+    padding: 1% 0% 0% 0%;
+  }
 }
 #WeatherView {
   margin: 5% 5% 20% 5%;
@@ -46,6 +59,12 @@ input.SearchBar {
     margin: 2% 2% 2% 20px;
     text-align: center;
     text-transform: uppercase;
+}
+@media (max-width: 600px) {
+  .SearchBar{
+     margin: 2% 2% 2% 0;
+     padding: auto;
+  }
 }
 .SearchButton{
     margin: 2% 2% 2% 0%;
