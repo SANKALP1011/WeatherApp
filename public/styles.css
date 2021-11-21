@@ -78,6 +78,11 @@ input.SearchBar {
   opacity: 0.8;
   font-weight: bolder;
 }
+@media (max-width: 600px) {
+  .MoreDetails{
+    text-align: center;
+  }
+}
 .WeatherIcon {
   margin: 3% 10% 5% 5%;
 }
