@@ -29,7 +29,17 @@ var IconUrl = "";
 
 /* Get used to send the file to server -: */
 app.get("/", function (req, res) {
-  res.render("weather", { CityName: CityName });
+  res.render("weather", {
+    CityName: CityName,
+    Temp: Temp,
+    TempFeelsLike: TempFeelsLike,
+    MinTemp: MinTemp,
+    MaxTemp: MaxTemp,
+    Pressure: Pressure,
+    Humidity: Humidity,
+    Cloud: CloudCondition,
+    IconUrl: IconUrl
+  });
 });
 
 /* Post used to post the data on server and handle api functionality -: */
@@ -95,11 +105,12 @@ app.post("/", function (req, res) {
         Cloud: CloudCondition,
         IconUrl: IconUrl
       });
+      res.send();
     });
   });
 });
 
 /* Server -: */
-app.listen(process.env.PORT || 3004, function () {
+app.listen(process.env.PORT || 3005, function () {
   console.log("server is up and running");
 });
