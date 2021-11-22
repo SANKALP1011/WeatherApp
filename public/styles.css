@@ -71,10 +71,15 @@ input.SearchBar {
   }
 }
 .SearchButton{
-    margin: 2% 2% 2% 0%;
+    margin: 2% 10% 2% 0%;
 }
 /* Responive design -: */
 @media (max-width: 600px) {
+  .SearchButton{
+    margin: 2% 0% 2% 0%;
+  }
+}
+@media (max-width: 540px) {
   .SearchButton{
     margin: 2% 0% 2% 0%;
   }
