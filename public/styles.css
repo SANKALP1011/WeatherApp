@@ -15,7 +15,7 @@ body {
   }
 }
 #WeatherView {
-  margin: 5% 5% 20% 5%;
+  margin: 5% 5% 5% 5%;
   background-image: url("https://wallpaperaccess.com/full/2903130.jpg");
   background: rgba(248, 231, 28, 0);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -62,12 +62,17 @@ input.SearchBar {
 }
 @media (max-width: 600px) {
   .SearchBar{
-     margin: 2% 2% 2% 0;
+     margin: 2% 0% 2% 0;
      padding: auto;
   }
 }
 .SearchButton{
     margin: 2% 2% 2% 0%;
+}
+@media (max-width: 600px) {
+  .SearchButton{
+    margin: 2% 0% 2% 0%;
+  }
 }
 .WeatherStats {
   margin: 10% 10% 10% 10%;
@@ -97,4 +102,12 @@ input.SearchBar {
     font-weight: bolder;
     padding: 5% 2% 2% 2%;
     text-decoration: underline;
+}
+.ConnectSection{
+  text-align: center;
+  padding: 1% 1% 1% 1%;
+}
+.FooterText{
+  font-weight: bolder;
+  font-size: 20px;
 }
