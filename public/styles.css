@@ -76,7 +76,7 @@ input.SearchBar {
 /* Responive design -: */
 @media (max-width: 600px) {
   .SearchButton{
-    margin: 2% 0% 2% 0%;
+    margin: 2% 0% 2% 20%;
   }
 }
 @media (max-width: 540px) {
