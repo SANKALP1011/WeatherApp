@@ -8,6 +8,7 @@ body {
   padding: 2% 2% 2% 2%;
   text-decoration: underline;
 }
+/* Responive design -: */
 @media (max-width: 600px) {
   .MainHeading{
     font-size: 60px;
@@ -29,6 +30,7 @@ body {
   font-weight: bolder;
   text-transform: uppercase;
 }
+/* Responive design -: */
 @media (max-width: 600px) {
   .CityText , .WeatherText{
     text-align: center !important;
@@ -60,6 +62,7 @@ input.SearchBar {
     text-align: center;
     text-transform: uppercase;
 }
+/* Responive design -: */
 @media (max-width: 600px) {
   .SearchBar{
      margin: 2% 0% 2% 0;
@@ -70,6 +73,7 @@ input.SearchBar {
 .SearchButton{
     margin: 2% 2% 2% 0%;
 }
+/* Responive design -: */
 @media (max-width: 600px) {
   .SearchButton{
     margin: 2% 0% 2% 0%;
@@ -84,6 +88,7 @@ input.SearchBar {
   opacity: 0.8;
   font-weight: bolder;
 }
+/* Responive design -: */
 @media (max-width: 600px) {
   .MoreDetails{
     text-align: center;
@@ -92,6 +97,7 @@ input.SearchBar {
 .WeatherIcon {
   margin: 3% 10% 5% 5%;
 }
+/* Responive design -: */
 @media (max-width: 600px) {
   .WeatherIcon{
     align-items: center;
