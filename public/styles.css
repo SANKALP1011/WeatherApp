@@ -66,8 +66,7 @@ input.SearchBar {
 @media (max-width: 600px) {
   .SearchBar{
      margin: 2% 0% 2% 0;
-     padding: 2% 1% 2% 0%;
-     padding: auto;
+     padding: 2% 0% 2% 0%;
   }
 }
 .SearchButton{
