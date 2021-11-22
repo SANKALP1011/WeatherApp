@@ -1,17 +1,17 @@
 # WeatherApp
-This is an weather web app which gives information about live weather.
+This is an weather web app which gives information about live weather./
 Deployed on heroku.
 
-> Frontend -:
+Frontend -:
 
-> HTML
-> CSS
+> HTML,
+> CSS,
 > JAVASCRIPT
 
-> Backend -:
+Backend -:
 
-> Node.js
-> Express.js
+> Node.js,
+> Express.js,
 > Embedded JavaScript
 
 Api used - https://openweathermap.org/api
