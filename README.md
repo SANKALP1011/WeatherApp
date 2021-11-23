@@ -14,4 +14,9 @@ Backend -:
 > Express.js,
 > Embedded JavaScript
 
+Frameworks -:
+
+> Bootstrap,
+> Tailwind
+
 Api used - https://openweathermap.org/api
