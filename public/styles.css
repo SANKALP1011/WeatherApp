@@ -78,11 +78,6 @@ input.SearchBar {
     margin: 2% 0% 2% 20%;
   }
 }
-@media (max-width: 540px) {
-  .SearchButton{
-    margin: 2% 0% 2% 0%;
-  }
-}
 .WeatherStats {
   margin: 10% 10% 10% 10%;
   border-radius: 30px;
