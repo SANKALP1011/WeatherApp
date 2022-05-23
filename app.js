@@ -5,7 +5,9 @@ const https = require("https");
 /* App.js using express.js -: */
 const app = express();
 /* Ejs installed and used -: */
+const mysql = require("mysql");
 const ejs = require("ejs");
+const { Console } = require("console");
 /* Setting ejs as view engine -: */
 app.set("view engine", "ejs");
 /* Using express as body parsing -: */
@@ -24,6 +26,30 @@ var Humidity = 0;
 var CloudCondition = "";
 var WeatherId = 0;
 var IconUrl = "";
+
+const Connection = mysql.createConnection({
+  "host": "127.0.0.1",
+  "user": "root",
+  "port": "3306",
+  "database": "weatherdb",
+  "password": "mysqldatabase"
+})
+
+try{
+  Connection.connect(function(err,result){
+    if(err){
+      Console.log("error while connecting database");
+    }
+    else{
+      console.log("Database connected successfully")
+    }
+  })
+}
+catch{
+  console.log("Some other error");
+}
+
+
 
 
 
@@ -94,6 +120,15 @@ app.post("/", function (req, res) {
       } else {
         console.log("error");
       }
+      const WeatherQuery = "Insert into WeatherData(CityName,Temp) VALUES ('"+CityName+"','"+Temp+"')"
+      Connection.query(WeatherQuery,function(err,res){
+        if(err){
+          console.log(err)
+        }
+        else{
+          console.log(res);
+        }
+      })
       res.render("weather", {
         CityName: CityName,
         Temp: Temp,
@@ -109,6 +144,40 @@ app.post("/", function (req, res) {
     });
   });
 });
+
+app.get("/getData",function(req,res){
+  const FetchWeatherQuery = "Select* from WeatherData";
+  Connection.query(FetchWeatherQuery,function(err,result){
+    try{
+      if(err){
+        console.log(err)
+      }
+      else{
+        res.send(result);
+        console.log(result);
+      }
+    }
+    catch{
+      console.log("Some other error");
+    }
+  })
+
+})
+
+app.get("/getWeather",function(req,res){
+  const d =  "Select* from WeatherData";
+  Connection.query(d,function(err,result){
+      if(err){
+        console.log(err)
+      }
+      else{
+        console.log(result);
+        res.render("MultipleCitiesData",{
+          CitiesData: result
+        })
+      }
+  })
+})
 
 /* Server -: */
 app.listen(process.env.PORT || 3005, function () {
