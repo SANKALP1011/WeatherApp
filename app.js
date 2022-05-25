@@ -5,9 +5,7 @@ const https = require("https");
 /* App.js using express.js -: */
 const app = express();
 /* Ejs installed and used -: */
-const mysql = require("mysql");
 const ejs = require("ejs");
-const { Console } = require("console");
 /* Setting ejs as view engine -: */
 app.set("view engine", "ejs");
 /* Using express as body parsing -: */
@@ -27,32 +25,6 @@ var CloudCondition = "";
 var WeatherId = 0;
 var IconUrl = "";
 
-const Connection = mysql.createConnection({
-  "host": "127.0.0.1",
-  "user": "root",
-  "port": "3306",
-  "database": "weatherdb",
-  "password": "mysqldatabase"
-})
-
-try{
-  Connection.connect(function(err,result){
-    if(err){
-      Console.log("error while connecting database");
-    }
-    else{
-      console.log("Database connected successfully")
-    }
-  })
-}
-catch{
-  console.log("Some other error");
-}
-
-
-
-
-
 /* Get used to send the file to server -: */
 app.get("/", function (req, res) {
   res.render("weather", {
@@ -71,7 +43,6 @@ app.get("/", function (req, res) {
 /* Post used to post the data on server and handle api functionality -: */
 app.post("/", function (req, res) {
   var city = req.body.CityName;
-  console.log(city);
   const url =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
@@ -88,10 +59,6 @@ app.post("/", function (req, res) {
       Humidity = weatherInfo.main.humidity;
       CloudCondition = weatherInfo.weather[0].description;
       WeatherId = weatherInfo.weather[0].id;
-      console.log(weatherInfo);
-      console.log(WeatherId);
-      console.log(CityName);
-      console.log(Temp);
       if (WeatherId >= 200 && WeatherId < 300) {
         IconUrl = "fas fa-cloud-showers-heavy fa-3x";
       } else if (WeatherId >= 300 && WeatherId < 400) {
@@ -120,15 +87,6 @@ app.post("/", function (req, res) {
       } else {
         console.log("error");
       }
-      const WeatherQuery = "Insert into WeatherData(CityName,Temp) VALUES ('"+CityName+"','"+Temp+"')"
-      Connection.query(WeatherQuery,function(err,res){
-        if(err){
-          console.log(err)
-        }
-        else{
-          console.log(res);
-        }
-      })
       res.render("weather", {
         CityName: CityName,
         Temp: Temp,
@@ -144,40 +102,6 @@ app.post("/", function (req, res) {
     });
   });
 });
-
-app.get("/getData",function(req,res){
-  const FetchWeatherQuery = "Select* from WeatherData";
-  Connection.query(FetchWeatherQuery,function(err,result){
-    try{
-      if(err){
-        console.log(err)
-      }
-      else{
-        res.send(result);
-        console.log(result);
-      }
-    }
-    catch{
-      console.log("Some other error");
-    }
-  })
-
-})
-
-app.get("/getWeather",function(req,res){
-  const d =  "Select* from WeatherData";
-  Connection.query(d,function(err,result){
-      if(err){
-        console.log(err)
-      }
-      else{
-        console.log(result);
-        res.render("MultipleCitiesData",{
-          CitiesData: result
-        })
-      }
-  })
-})
 
 /* Server -: */
 app.listen(process.env.PORT || 3005, function () {
